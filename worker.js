@@ -1,7 +1,7 @@
 chrome.action.onClicked.addListener((tab) => {
     // chrome.action.setPopup({"popup": 'popup.html'});
     chrome.scripting.executeScript({
-        "target": {"tabId": tab.id},
+        "target": {"tabId": tab.id}, // "allFrames": true},
         "files": ["grabber.js"]
     })
 })

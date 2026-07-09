@@ -2,12 +2,13 @@
 // https://developer.chrome.com/blog/html-in-canvas-origin-trial
 // You'll need to have chrome://flags/#canvas-draw-element enabled!!
 
-function snapshot() {
-    let video = undefined
-    let subtitles = undefined
+function screengrab() {
+    const video = document.getElementsByTagName("video")[0]
+    if(video == undefined) throw new Error("Could not find video")
+    const bounds = video?.getBoundingClientRect()
 
+    let subtitles = undefined
     if(window.location.host.includes("youtube.com")) {
-        video = document.getElementsByTagName("video")[0]
         subtitles = document.getElementById("ytp-caption-window-container")?.cloneNode(true)
     } else if(window.location.host.includes("dropout.tv")) {
         // video = document.getElementsByTagName("video")
@@ -18,16 +19,10 @@ function snapshot() {
         //     subtitles = subdocument?.getElementsByClassName("vp-captions")[0] || subtitles
         // })
     } else if(window.location.host.includes("beacon.tv")) {
-        video = document.getElementsByTagName("video")[0]
         subtitles = document.getElementsByClassName("jw-captions")[0]?.cloneNode(true)
     } else {
         throw new Error("This website is not supported for screengrabs.")
     }
-
-
-
-    if(video == undefined) throw new Error("Could not find video")
-    const bounds = video?.getBoundingClientRect()
 
     // CANVAS //
 
@@ -68,4 +63,4 @@ function snapshot() {
 
 }
 
-snapshot()
+screengrab()
