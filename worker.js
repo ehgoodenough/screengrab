@@ -6,6 +6,6 @@ chrome.action.onClicked.addListener((tab) => {
     })
 })
 
-chrome.commands.onCommand.addListener((command) => {
-    console.log(`Command: ${command}`)
-})
+// chrome.commands.onCommand.addListener((command) => {
+//     console.log(`Command: ${command}`)
+// })

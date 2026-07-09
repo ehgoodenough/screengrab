@@ -1,0 +1,9 @@
+{
+  "name": "screengrab",
+  "version": "1.0.0",
+  "description": "An experimental extension for taking screenshots from videos.",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "grabber.js"
+}
